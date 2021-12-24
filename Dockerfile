@@ -143,7 +143,7 @@ RUN \
   && apt-get -yq update && apt-get install -yq --fix-missing google-chrome-stable x11vnc rsync
 
 RUN apt-get update && apt-get install -yq --fix-missing apt-transport-https libpng-dev
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get update && apt-get install -yq --fix-missing nodejs
 RUN apt-get update && apt-get install -yq --fix-missing git
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
@@ -181,17 +181,15 @@ RUN apt-get -yq clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN systemctl enable xvfb
 
-RUN versions
-
 ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
 LABEL org.label-schema.build-date=$BUILD_DATE \
           org.label-schema.name="Laravel Dusk CI Docker" \
           org.label-schema.description="Test suite for Laravel Dusk in gitlab CI" \
-          org.label-schema.url="https://hub.docker.com/r/chilio/laravel-dusk-ci/" \
+          org.label-schema.url="https://hub.docker.com/r/stevenkey/laravel-dusk-ci/" \
           org.label-schema.vcs-ref=$VCS_REF \
-          org.label-schema.vcs-url="https://github.com/chilio/laravel-dusk-ci" \
+          org.label-schema.vcs-url="https://github.com/stevenkey/laravel-dusk-ci" \
           org.label-schema.vendor="Chilio" \
           org.label-schema.version=$VERSION \
           org.label-schema.schema-version="1.0.0"
